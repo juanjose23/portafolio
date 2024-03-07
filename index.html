@@ -1,0 +1,434 @@
+<!doctype html>
+<html class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dev Juan Rios Portafolio</title>
+    <link rel="icon" href="">
+    <!-- Tailwind CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <style type="text/tailwindcss">
+        body {
+                font-family: 'Poppins', sans-serif;
+            }
+
+            .hamburger-line {
+                @apply w-[18px] h-[2px] my-1 block bg-dark;
+            }
+
+            .hamburger-active > span:nth-child(1) {
+                @apply rotate-45;
+            }
+
+            .hamburger-active > span:nth-child(2) {
+                @apply scale-0;
+            }
+
+            .hamburger-active > span:nth-child(3) {
+                @apply -rotate-45;
+            }
+
+        </style>
+    <!-- Boxicons -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <!-- Text Color -->
+    <script>
+        tailwind.config = {
+            theme: {
+                container: {
+                    center: true,
+                    padding: '16px',
+                },
+                extend: {
+                    colors: {
+                        primary: '#2563EB',
+                        dark: '#0f172a',
+                        secondary: '#64748b',
+                    },
+                    screens: {
+                        '2xl': '1230px',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="bg-transparent fixed bg-white drop-shadow-sm top-0 left-0 w-full flex items-center z-10">
+        <div class="container">
+            <div class="flex items-center justify-between relative">
+                <div class="px-4">
+                    <a href="#home" class="font-bold text-lg text-primary block py-6 tracking-wide">Dev Juan Jose Rios
+                        Huete</a>
+                </div>
+                <div class="flex items-center px-4">
+                    <button id="hamburger" name="hamburger" type="button" class="block absolute right-4 lg:hidden">
+                        <span class="hamburger-line transition duration-300 ease-in-out origin-top-left"></span>
+                        <span class="hamburger-line transition duration-300 ease-in-out"></span>
+                        <span class="hamburger-line transition duration-300 ease-in-out origin-bottom-left"></span>
+                    </button>
+
+                    <!-- Navbar -->
+                    <nav id="nav-menu"
+                        class="hidden absolute py-5 bg-white shadow-sm rounded-lg max-w-[250px] w-full right-4 top-full lg:block lg:static lg:bg-transparent lg:max-w-full lg:rounded-none lg:shadow-none">
+                        <ul class="block lg:flex">
+                            <li class="group">
+                                <a class="text-base text-dark py-2 mx-5 group-hover:text-primary flex"
+                                    href="#home">Inicio</a>
+                            </li>
+                            <li class="group">
+                                <a class="text-base text-dark py-2 mx-5 group-hover:text-primary flex"
+                                    href="#about">Sobre mí</a>
+                            </li>
+                            <li class="group">
+                                <a class="text-base text-dark py-2 mx-5 group-hover:text-primary flex"
+                                    href="#portfolio">Portafolio</a>
+                            </li>
+                            <li class="group">
+                                <a class="text-base text-dark py-2 mx-5 group-hover:text-primary flex"
+                                    href="#contact">Contacto</a>
+                            </li>
+                        </ul>
+                    </nav>
+                    <!-- /Navbar -->
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- /Header -->
+
+    <!-- Home -->
+    <section id="home" class="pt-36">
+        <div class="container">
+            <div class="flex flex-wrap">
+                <div class="w-full self-center px-4 lg:w-1/2">
+                    <h1 class="text-base font-medium text-primary">Hola 👋, soy <span
+                            class="block font-bold text-dark text-3xl mt-1 lg:text-4xl">Juan Huete</span></h1>
+                    <h2 class="font-medium text-slate-500 text-lg mb-5 mt-3">Junior desarrollador web</h2>
+                    <p class="font-normal text-secondary mb-10 leading-relaxed">Soy un apasionado desarrollador web
+                        junior con experiencia en varios marcos de trabajo como Flask, Laravel, PHP y Django.</p>
+                    <a href="#contact"
+                        class="text-base font-semibold text-white bg-primary py-3 px-8 rounded-full hover:shadow-lg hover:opacity-90 transition duration-300 ease-in-out">Contacta
+                        Conmigo</a>
+                </div>
+                <div class="w-full self-end px-4 lg:w-1/2">
+                    <div class="mt-10 lg:mt-8 lg:right-0">
+                        <img src="https://avatars.githubusercontent.com/u/108718431?v=4" alt="elfira nurul ilma"
+                            class="max-w-full mx-auto w-96">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- /Home -->
+
+    <!-- About -->
+    <section id="about" class="pt-36 pb-32">
+        <div class="container">
+            <div class="flex flex-wrap">
+                <div class="w-full px-4 mb-5 lg:w-1/2">
+                    <h4 class="text-base font-medium text-primary mb-2">Sobre mí</h4>
+                    <h2 class="font-bold text-dark text-2xl lg:text-3xl mb-5">Junior desarrollador web</h2>
+                    <p class="font-normal text-secondary mb-5 leading-relaxed max-w-xl">Soy un entusiasta desarrollador
+                        web junior con experiencia en una amplia gama de proyectos, desde aplicaciones web simples hasta
+                        sistemas más complejos. Estas experiencias me han brindado una base sólida en la creación y
+                        mantenimiento de aplicaciones web dinámicas. Actualmente, me encuentro cursando los últimos dos
+                        semestres de Ingeniería de Sistemas en la Universidad Nacional de Ingeniería, lo que complementa
+                        mi pasión por el desarrollo web con un sólido conocimiento teórico. Estoy comprometido a seguir
+                        aprendiendo y creciendo en este campo, buscando constantemente nuevas oportunidades para mejorar
+                        mis habilidades y contribuir de manera significativa al desarrollo web.</p>
+                </div>
+                <div class="w-full px-4 lg:w-1/2">
+                    <h3 class="font-bold text-dark text-xl lg:text-2xl mb-5 lg:pt-8">Mis redes</h3>
+                    <p class="font-normal text-secondary mb-4 leading-relaxed">Te invito a seguirme en mis redes
+                        sociales para estar al tanto de mis proyectos y actividades</p>
+                    <div class="flex items-center">
+                        <!-- Youtube -->
+
+                        <!-- Linkedin -->
+                        <a href="https://linkedin.com/in/juan-jose-rios-huete-615b60168/" target="_blank"
+                            class="w-10 h-10 mr-2 rounded-full flex justify-center items-center text-slate-500 border border-slate-300 hover:border-primary hover:bg-primary hover:text-white duration-300 ease-in-out">
+                            <i class='bx bxl-linkedin fill-current text-2xl'></i>
+                        </a>
+                        <!-- Instagram -->
+                        <a href="https://www.instagram.com/juan_huete23/?hl=es-la" target="_blank"
+                            class="w-10 h-10 mr-2 rounded-full flex justify-center items-center text-slate-500 border border-slate-300 hover:border-primary hover:bg-primary hover:text-white duration-300 ease-in-out">
+                            <i class='bx bxl-instagram-alt fill-current text-2xl'></i>
+                        </a>
+                        <!-- Github -->
+                        <a href="https://github.com/juanjose23" target="_blank"
+                            class="w-10 h-10 mr-2 rounded-full flex justify-center items-center text-slate-500 border border-slate-300 hover:border-primary hover:bg-primary hover:text-white duration-300 ease-in-out">
+                            <i class='bx bxl-github fill-current text-2xl'></i>
+                        </a>
+                        <!-- Dribbble -->
+                        <a href="https://twitter.com/Juan65010138" target="_blank"
+                            class="w-10 h-10 mr-2 rounded-full flex justify-center items-center text-slate-500 border border-slate-300 hover:border-primary hover:bg-primary hover:text-white duration-300 ease-in-out">
+                            <i class='bx bxl-twitter fill-current text-2xl'></i>
+                        </a>
+                        <!-- Facebook -->
+                        <a href="https://www.facebook.com/huete.juan.58118774/" target="_blank"
+                            class="w-10 h-10 mr-2 rounded-full flex justify-center items-center text-slate-500 border border-slate-300 hover:border-primary hover:bg-primary hover:text-white duration-300 ease-in-out">
+                            <i class='bx bxl-facebook fill-current text-2xl'></i>
+                        </a>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- /About -->
+
+    <!-- Portfolio -->
+    <section id="portfolio" class="pt-36 pb-16 bg-slate-100">
+        <div class="container">
+            <div class="w-full px-2">
+                <div class="max-w-xl mx-auto text-center mb-16">
+                    <h4 class="text-base font-medium text-primary mb-2">Portafolio</h4>
+                    <h2 class="font-bold text-dark text-2xl lg:text-3xl mb-5">Proyectos recientes</h2>
+                    <p class="font-normal text-secondary leading-relaxed">
+                        Aquí hay algunos proyectos recientes en los que he trabajado, incluidos proyectos personales en
+                        los que trabajé yo mismo.</p>
+                </div>
+            </div>
+            <div class="w-full px-4 flex flex-wrap justify-center xl:w-10/12 xl:mx-auto">
+                <div class="flex justify-center space-x-6">
+                    <div
+                        class="relative flex flex-col mt-6 text-gray-700 bg-white shadow-md bg-clip-border rounded-xl w-96">
+                        <div
+                            class="relative h-50 mx-4 -mt-6 overflow-hidden text-white shadow-lg bg-clip-border rounded-xl bg-blue-gray-500 shadow-blue-gray-500/40">
+                            <img src="https://res.cloudinary.com/dxtlbsa62/image/upload/v1709778828/imagen_2024-03-06_203346735_ekzfqg.png"
+                                height="100%" alt="card-image" />
+                        </div>
+                        <div class="p-7">
+                            <h5
+                                class="block mb-2 font-sans text-xl antialiased font-semibold leading-snug tracking-normal text-blue-gray-900">
+                                Plantilla basica administrativa</h5>
+                            <p class="block font-sans text-base antialiased font-light leading-relaxed text-inherit">
+                                Plantilla de administrador básica con diseño minimalista es la herramienta perfecta para
+                                aquellos que buscan una interfaz de usuario limpia y funcional para administrar sus
+                                proyectos.
+                                Desarrollada con Tailwind CSS, esta plantilla ofrece un diseño elegante y moderno que se
+                                adapta
+                                a una amplia gama de aplicaciones y proyectos.</p>
+                        </div>
+                        <div class="p-6 pt-0">
+                            <a href="https://github.com/juanjose23/Plantilla_admin_basica"
+                                class="align-middle select-none font-sans font-bold text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none text-xs py-3 px-6 rounded-lg bg-gray-900 text-white shadow-md shadow-gray-900/10 hover:shadow-lg hover:shadow-gray-900/20 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none"
+                                type="button"><i class='bx bxl-github mr-3'></i>Ver repositorio </a>
+                            <a href="https://juanjose23.github.io/Plantilla_admin_basica/" target="_blank"
+                                class="align-middle select-none font-sans font-bold text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none text-xs py-3 px-6 rounded-lg bg-red-900 text-white shadow-md shadow-gray-900/10 hover:shadow-lg hover:shadow-gray-900/20 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none"
+                                type="button"> <i class='bx bx-show-alt mr-3'></i>Ver en vivo </a>
+                        </div>
+                    </div>
+                    <div
+                        class="relative flex flex-col mt-6 text-gray-700 bg-white shadow-md bg-clip-border rounded-xl w-96">
+                        <!-- Contenido de la segunda tarjeta -->
+                        <div
+                            class="relative h-50 mx-4 -mt-6 overflow-hidden text-white shadow-lg bg-clip-border rounded-xl bg-blue-gray-500 shadow-blue-gray-500/40">
+                            <img src="https://res.cloudinary.com/dxtlbsa62/image/upload/v1709626491/marcas/u9x7eysmyy3e18nccq89.png"
+                                alt="card-image" />
+                        </div>
+                        <div class="p-7">
+                            <h5
+                                class="block mb-2 font-sans text-xl antialiased font-semibold leading-snug tracking-normal text-blue-gray-900">
+                                Sistema de autolavado</h5>
+                            <p class="block font-sans text-base antialiased font-light leading-relaxed text-inherit">
+                                El proyecto Autolavado es una completa solución de gestión administrativa diseñada para
+                                empresas de lavado de autos. Está destinado a simplificar y optimizar las operaciones
+                                diarias, desde la gestión de clientes y colaboradores hasta el seguimiento de servicios,
+                                precios y ventas.
+                            <div class="mt-8"></div>
+                            </p>
+                        </div>
+                        <div class="p-7 pt-0">
+                            <a href="https://github.com/juanjose23/Autolavado" target="_blank"
+                                class="align-middle select-none font-sans font-bold text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none text-xs py-3 px-6 rounded-lg bg-gray-900 text-white shadow-md shadow-gray-900/10 hover:shadow-lg hover:shadow-gray-900/20 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none">
+                                <i class='bx bxl-github mr-3'></i>Ver repositorio</a>
+                        </div>
+                    </div>
+                    <div
+                        class="relative flex flex-col mt-6 text-gray-700 bg-white shadow-md bg-clip-border rounded-xl w-96">
+                        <!-- Contenido de la tercera tarjeta -->
+                        <div
+                            class="relative h-56 mx-4 -mt-6 overflow-hidden text-white shadow-lg bg-clip-border rounded-xl bg-blue-gray-500 shadow-blue-gray-500/40">
+                            <img src="https://res.cloudinary.com/dxtlbsa62/image/upload/v1709780912/samples/imagen_2024-03-06_210831963_yxox0x.png" alt="card-image" />
+                        </div>
+                        <div class="p-6">
+                            <h5
+                                class="block mb-2 font-sans text-xl antialiased font-semibold leading-snug tracking-normal text-blue-gray-900">
+                                Automatización de mensajes mendiante WhatsApp</h5>
+                            <p class="block font-sans text-base antialiased font-light leading-relaxed text-inherit">
+                                Este proyecto se enfoca en la automatización de mensajes de WhatsApp, puedes configurar
+                                respuestas automatizadas para
+                                preguntas frecuentes, recibir y responder mensajes de manera automatizada, y hacer un
+                                seguimiento de las interacciones con los clientes. </p>
+                        </div>
+                        <div class="p-6 pt-0">
+                            <a href="https://github.com/juanjose23/ChatbotWhatsapp" target="_blank"
+                                class="align-middle select-none font-sans font-bold text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none text-xs py-3 px-6 rounded-lg bg-gray-900 text-white shadow-md shadow-gray-900/10 hover:shadow-lg hover:shadow-gray-900/20 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none"><i
+                                    class='bx bxl-github mr-3'></i>Ver repositorio</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+        </div>
+    </section>
+    <!-- /Portfolio -->
+
+    <!-- Contact -->
+    <section id="contact" class="pt-36 pb-32">
+        <div class="container">
+            <div class="w-full px-4">
+                <div class="max-w-xl mb-16">
+                    <h4 class="text-base font-medium text-primary mb-2">Contacto</h4>
+                    <h2 class="font-bold text-dark text-2xl lg:text-3xl mb-5">Contacta conmigo
+                    </h2>
+                    <p class="font-normal text-secondary mb-10 leading-relaxed">Con respecto a la colaboración,
+                        preguntas u ofertas de trabajo, complete el formulario de mensaje a continuación.</p>
+                </div>
+            </div>
+            <form action="https://formsubmit.co/juanhuete052@gmail.com" method="POST">
+                <div class="w-full lg:w-1/1">
+                    <div class="w-full px-4 mb-8 relative">
+                        <input type="text" id="nama" placeholder="Nombre" name="Nombre" required
+                            class="text-base border-b w-full text-dark pb-3 pl-10 focus:outline-none focus:border-primary">
+                        <i class='bx bx-user absolute left-3 top-1/2 transform -translate-y-1/2 text-primary'></i>
+                    </div>
+                    <div class="w-full px-4 mb-8 relative">
+                        <input type="email" id="email" placeholder="Correo: ejemplo@gmail.com" name="Email"
+                            class="text-base border-b w-full text-dark pb-3 pl-10 focus:outline-none focus:border-primary"
+                            required>
+                        <i class='bx bx-envelope absolute left-3 top-1/2 transform -translate-y-1/2 text-primary'></i>
+                    </div>
+                    <div class="w-full px-4 mb-12 relative">
+                        <textarea type="text" id="pesam" name="Mensaje" placeholder="Escribe tu mensaje" data-error="Por
+                                                    favor, ingresa tu mensaje." required="required"
+                            class="text-base border-b w-full text-dark pb-3 h-32 pl-10 focus:outline-none focus:border-primary"></textarea>
+                        <i class='bx bx-message-square-detail absolute left-3 top-3 text-primary'></i>
+                    </div>
+
+                    <div class="px-4">
+                        <button type="submit"
+                            class="text-base font-semibold text-white bg-primary py-3 px-8 rounded-full hover:shadow-lg hover:opacity-90 transition duration-300 ease-in-out">Enviar
+                            mensaje</button>
+                        <div>
+                            <input type="hidden" name="_template" value="table">
+                        </div>
+                        <div>
+                            <input type="hidden" name="_autoresponse" value="Con gusto lo atendermos">
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </section>
+    <!-- /Contact -->
+
+    <!-- Footer -->
+    <footer class="bg-dark pt-24 pb-12">
+        <div class="container">
+            <div class="flex flex-wrap">
+                <div class="w-full px-4 mb-12 text-slate-300 font-medium md:w-1/3">
+                    <h2 class="font-bold text-4xl text-white mb-5">Juan José Rios Huete</h2>
+                    <h3 class="font-bold text-2xl mb-2">Desarrollador web</h3>
+                    <p>juanhuete052@gmail.com</p>
+                    <p>Managua - Nicaragua</p>
+
+                </div>
+                <div class="w-full px-4 mb-12 md:w-1/3">
+                    <h3 class="font-semibold text-xl text-white mb-5">Desarrollo Backend</h3>
+                    <ul class="text-slate-300">
+                        <!-- PHP y Laravel -->
+                        <li class="flex items-center mb-3">
+                            <img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/laravel-colored.svg"
+                                alt="PHP" class="w-6 h-6 mr-2">
+                            <a href="#" class="inline-block text-base hover:text-primary">Laravel</a>
+                        </li>
+                        <!-- Flask -->
+                        <li class="flex items-center mb-3">
+                            <img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/flask-colored.svg"
+                                alt="Python" class="w-6 h-6 mr-2">
+                            <a href="#" class="inline-block text-base hover:text-primary">Flask</a>
+                        </li>
+                        <!-- Django -->
+                        <li class="flex items-center mb-3">
+                            <img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/django-colored.svg"
+                                alt="Python" class="w-6 h-6 mr-2">
+                            <a href="#" class="inline-block text-base hover:text-primary">Django</a>
+                        </li>
+                        <!-- Gestores de Bases de Datos -->
+                        <li class="font-semibold mt-6 text-base text-white">Gestores de Bases de Datos:</li>
+                        <li class="flex items-center mb-3">
+                            <img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/mysql-colored.svg"
+                                alt="MySQL" class="w-6 h-6 mr-2">
+                            <a href="#" class="inline-block text-base hover:text-primary">MySQL</a>
+                        </li>
+                        <li class="flex items-center mb-3">
+                            <img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/postgresql-colored.svg"
+                                alt="PostgreSQL" class="w-6 h-6 mr-2">
+                            <a href="#" class="inline-block text-base hover:text-primary">PostgreSQL</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="w-full px-4 mb-12 md:w-1/3">
+                    <h3 class="font-semibold text-xl text-white mb-5">Contenido</h3>
+                    <ul class="text-slate-300">
+                        <li><a href="#about" class="inline-block text-base hover:text-primary mb-3">Sobre mí</a></li>
+                        <li><a href="#contact" class="inline-block text-base hover:text-primary mb-3">Contacto</a></li>
+                        <li><a href="#portfolio" class="inline-block text-base hover:text-primary mb-3">Portafolio</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="w-full pt-4">
+                <div class="flex items-center justify-center mb-5">
+                    <!-- Linkedin -->
+                    <a href="https://linkedin.com/in/juan-jose-rios-huete-615b60168/" target="_blank"
+                        class="w-10 h-10 mr-2 rounded-full flex justify-center items-center text-slate-500 border border-slate-300 hover:border-primary hover:bg-primary hover:text-white duration-300 ease-in-out">
+                        <i class='bx bxl-linkedin fill-current text-2xl'></i>
+                    </a>
+                    <!-- Instagram -->
+                    <a href="https://www.instagram.com/juan_huete23/?hl=es-la" target="_blank"
+                        class="w-10 h-10 mr-2 rounded-full flex justify-center items-center text-slate-500 border border-slate-300 hover:border-primary hover:bg-primary hover:text-white duration-300 ease-in-out">
+                        <i class='bx bxl-instagram-alt fill-current text-2xl'></i>
+                    </a>
+                    <!-- Github -->
+                    <a href="https://github.com/juanjose23" target="_blank"
+                        class="w-10 h-10 mr-2 rounded-full flex justify-center items-center text-slate-500 border border-slate-300 hover:border-primary hover:bg-primary hover:text-white duration-300 ease-in-out">
+                        <i class='bx bxl-github fill-current text-2xl'></i>
+                    </a>
+                    <!-- Dribbble -->
+                    <a href="https://twitter.com/Juan65010138" target="_blank"
+                        class="w-10 h-10 mr-2 rounded-full flex justify-center items-center text-slate-500 border border-slate-300 hover:border-primary hover:bg-primary hover:text-white duration-300 ease-in-out">
+                        <i class='bx bxl-twitter fill-current text-2xl'></i>
+                    </a>
+                    <!-- Facebook -->
+                    <a href="https://www.facebook.com/huete.juan.58118774/" target="_blank"
+                        class="w-10 h-10 mr-2 rounded-full flex justify-center items-center text-slate-500 border border-slate-300 hover:border-primary hover:bg-primary hover:text-white duration-300 ease-in-out">
+                        <i class='bx bxl-facebook fill-current text-2xl'></i>
+                    </a>
+                </div>
+                <p class="text-slate-500 text-sm text-center">Dev Juan Huete<span class="text-red-600">💻</span> <a
+                        href="#" class="text-primary font-medium">Elaborado con</a>, <a href=""
+                        class="text-sky-500 font-medium">Tailwindcss</a></p>
+            </div>
+        </div>
+    </footer>
+    <!-- /Footer -->
+
+    <script src="dist/js/script.js"></script>
+</body>
+
+</html>
