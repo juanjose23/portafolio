@@ -42,7 +42,7 @@ export const App = () => {
         <About />
         <Projects />
       </main>
-      <Footer />
+      <footer />
     </div>
   </>
 }

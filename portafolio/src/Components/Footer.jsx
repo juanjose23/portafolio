@@ -1,6 +1,6 @@
 import { Github, Linkedin, Twitter } from "lucide-react"
 
-export const  Footer=()=> {
+export const  footer=()=> {
   const currentYear = new Date().getFullYear()
 
   const socialLinks = [
