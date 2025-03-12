@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react"
 import { About, Hero, Navbar, Projects } from "./Components"
-import { Footer } from "./Components/footer"
+import { FooterComponent } from "./Components/"
 
 
 export const App = () => {
@@ -42,7 +42,7 @@ export const App = () => {
         <About />
         <Projects />
       </main>
-      <footer />
+      <FooterComponent />
     </div>
   </>
 }
