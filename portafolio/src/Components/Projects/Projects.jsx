@@ -1,5 +1,5 @@
 
-import { projects } from "../../Data/projects ";
+import { Data } from "../../Data";
 import { ProjectCard } from "./ProjectsCard";
 
 export const Projects = () => (
@@ -11,8 +11,8 @@ export const Projects = () => (
       </p>
 
       <div className="grid md:grid-cols-2 gap-8">
-        {projects.map((project, index) => (
-          <ProjectCard key={index} {...project} />
+        {Data.map((Data, index) => (
+          <ProjectCard key={index} {...Data} />
         ))}
       </div>
     </div>

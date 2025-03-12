@@ -1,5 +1,5 @@
-// src/data/projectsData.js
-export const projects = [
+
+export const Data = [
     {
       title: "Proyecto 1",
       description: "Descripción del proyecto 1.",
