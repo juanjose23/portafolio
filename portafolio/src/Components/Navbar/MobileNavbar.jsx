@@ -12,7 +12,7 @@ export const MobileNavbar = ({ darkMode, toggleDarkMode }) => {
       const scrollPosition = window.scrollY + window.innerHeight / 2
 
       const sections = [
-        { id: "home", element: document.body }, // El hero está al inicio
+        { id: "home", element: document.getElementById("home") }, // El hero está al inicio
         { id: "about", element: document.getElementById("about") },
         { id: "projects", element: document.getElementById("projects") },
         { id: "contact", element: document.getElementById("contact") },

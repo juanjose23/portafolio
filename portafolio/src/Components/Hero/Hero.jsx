@@ -20,8 +20,9 @@ export const Hero = () => {
             Hola, soy <span className="text-blue-600 dark:text-blue-400">Juan</span>
           </h1>
           <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-400 mb-8 animate-in fade-in slide-in-from-bottom-5 duration-700 delay-150">
-            Desarrollador Backend
+            Desarrollador de software con experiencia en backend, frontend y análisis de datos.
           </p>
+
           <div className="animate-in fade-in slide-in-from-bottom-6 duration-700 delay-300">
             <a
               href="#projects"

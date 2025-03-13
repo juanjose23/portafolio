@@ -78,7 +78,7 @@ export const Contact = () => {
               </h4>
               <div className="flex space-x-4">
                 <a 
-                  href="#" 
+                  href="https://www.linkedin.com/in/juan-huete-615b60168/" 
                   className="p-2 rounded-full bg-gray-100 dark:bg-gray-700 hover:bg-blue-100 dark:hover:bg-blue-900 transition-colors duration-300"
                   aria-label="LinkedIn"
                 >
@@ -87,7 +87,7 @@ export const Contact = () => {
                   </svg>
                 </a>
                 <a 
-                  href="#" 
+                  href="https://github.com/juanjose23" 
                   className="p-2 rounded-full bg-gray-100 dark:bg-gray-700 hover:bg-blue-100 dark:hover:bg-blue-900 transition-colors duration-300"
                   aria-label="GitHub"
                 >
@@ -96,7 +96,7 @@ export const Contact = () => {
                   </svg>
                 </a>
                 <a 
-                  href="#" 
+                  href="https://x.com/Juan65010138" 
                   className="p-2 rounded-full bg-gray-100 dark:bg-gray-700 hover:bg-blue-100 dark:hover:bg-blue-900 transition-colors duration-300"
                   aria-label="Twitter"
                 >

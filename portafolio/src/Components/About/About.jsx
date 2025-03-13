@@ -1,6 +1,6 @@
 import { Code, Database, Server, Activity, BarChart, Layers } from "lucide-react"
-export const  About=()=> {
- 
+export const About = () => {
+
 
   const skills = [
     {
@@ -39,8 +39,11 @@ export const  About=()=> {
       <div className="max-w-3xl mx-auto">
         <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center">Sobre mí</h2>
         <p className="text-lg text-gray-600 dark:text-gray-400 mb-12 text-center">
-         Lorem ipsum dolor sit amet consectetur adipisicing elit. Id vero eos, rem repellendus ipsam quaerat consequuntur porro sequi eveniet tenetur nemo culpa deleniti. Nemo quia numquam, optio voluptas iure molestiae?
+          Soy un desarrollador web con un año de experiencia en el diseño e implementación de soluciones tecnológicas.
+          Egresado en Ingeniería en Sistemas, me especializo en desarrollo backend, aunque también cuento con habilidades en frontend y análisis de datos con R. Mi enfoque se centra en crear soluciones eficientes y escalables, combinando creatividad y pensamiento analítico para abordar desafíos complejos.
+          Si deseas conocer más sobre los proyectos en los que he trabajado, te invito a explorarlos a continuación.
         </p>
+
 
         <div className="grid md:grid-cols-3 gap-8">
           {skills.map((skill, index) => (
