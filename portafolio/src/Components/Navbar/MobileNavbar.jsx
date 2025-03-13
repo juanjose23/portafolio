@@ -36,7 +36,7 @@ export const MobileNavbar = ({ darkMode, toggleDarkMode }) => {
   }, [])
 
   const navItems = [
-    { id: "home", label: "Inicio", icon: <Home className="h-5 w-5" />, href: "#" },
+    { id: "home", label: "Inicio", icon: <Home className="h-5 w-5" />, href: "#home" },
     { id: "about", label: "Sobre mí", icon: <User className="h-5 w-5" />, href: "#about" },
     { id: "projects", label: "Proyectos", icon: <Briefcase className="h-5 w-5" />, href: "#projects" },
     { id: "contact", label: "Contacto", icon: <Mail className="h-5 w-5" />, href: "#contact" },

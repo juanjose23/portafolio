@@ -2,7 +2,7 @@ import { ArrowDown } from "lucide-react"
 
 export const Hero = () => {
   return (
-    <section className="pt-32 pb-16 md:pt-40 md:pb-24 overflow-hidden relative">
+    <section id="home" className="pt-32 pb-16 md:pt-40 md:pb-24 overflow-hidden relative">
       {/* Patrón de puntos de fondo */}
       <div className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-grid-pattern opacity-5 dark:opacity-10"></div>
