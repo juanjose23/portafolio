@@ -1,87 +1,85 @@
-"use client"
-
-import { useEffect, useState, useRef } from "react"
-import { Data } from "../../Data" 
-import { ProjectCard } from "./ProjectsCard"
-import { ChevronLeft, ChevronRight, LayoutGrid } from "lucide-react"
-import { motion, AnimatePresence } from "framer-motion"
+import { useEffect, useState, useRef } from "react";
+import { Data } from "../../Data";
+import { ProjectCard } from "./ProjectsCard";
+import { ChevronLeft, ChevronRight, LayoutGrid } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 
 export const Projects = () => {
-  const [view, setView] = useState("carousel")
-  const [activeIndex, setActiveIndex] = useState(0)
-  const [isVisible, setIsVisible] = useState(false)
-  const carouselRef = useRef(null)
+  const [view, setView] = useState("carousel");
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [isVisible, setIsVisible] = useState(false);
+  const carouselRef = useRef(null);
 
-  // Para el carrusel
-  const totalItems = Data.length
-  const itemsPerView = { mobile: 1, tablet: 2, desktop: 3 }
-  
-  const [touchStart, setTouchStart] = useState(null)
-  const [touchEnd, setTouchEnd] = useState(null)
+  // Total de items y visibilidad móvil
+  const totalItems = Data.length;
+  const itemsPerView = { mobile: 1, tablet: 2, desktop: 3 };
+
+  const [touchStart, setTouchStart] = useState(null);
+  const [touchEnd, setTouchEnd] = useState(null);
 
   // Calcular los items visibles según el tamaño de pantalla
   const getItemsPerView = () => {
-    const width = window.innerWidth
-    if (width >= 1024) return itemsPerView.desktop // Desktop
-    if (width >= 768) return itemsPerView.tablet  // Tablet
-    return itemsPerView.mobile // Mobile
-  }
+    const width = window.innerWidth;
+    if (width >= 1024) return itemsPerView.desktop; // Desktop
+    if (width >= 768) return itemsPerView.tablet; // Tablet
+    return itemsPerView.mobile; // Mobile
+  };
 
   // Asegurarse de que el activeIndex no exceda el número total de items
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
         if (entries[0].isIntersecting) {
-          setIsVisible(true)
+          setIsVisible(true);
         }
       },
-      { threshold: 0.1 },
-    )
+      { threshold: 0.1 }
+    );
 
-    const section = document.getElementById("projects")
-    if (section) observer.observe(section)
+    const section = document.getElementById("projects");
+    if (section) observer.observe(section);
 
     return () => {
-      if (section) observer.unobserve(section)
-    }
-  }, [])
+      if (section) observer.unobserve(section);
+    };
+  }, []);
 
   // Funciones para el carrusel
   const nextSlide = () => {
-    const itemsPerViewCount = getItemsPerView()
-    const maxIndex = Math.floor(totalItems / itemsPerViewCount)
-    setActiveIndex((prevIndex) => (prevIndex + 1 <= maxIndex ? prevIndex + 1 : prevIndex))
-  }
+    const itemsPerViewCount = getItemsPerView();
+    const maxIndex = Math.floor(totalItems / itemsPerViewCount);
+    setActiveIndex((prevIndex) => (prevIndex + 1 <= maxIndex ? prevIndex + 1 : prevIndex));
+  };
 
   const prevSlide = () => {
-    setActiveIndex((prevIndex) => (prevIndex - 1 >= 0 ? prevIndex - 1 : prevIndex))
-  }
+    setActiveIndex((prevIndex) => (prevIndex - 1 >= 0 ? prevIndex - 1 : prevIndex));
+  };
 
   // Manejo de eventos táctiles para el carrusel
   const handleTouchStart = (e) => {
-    setTouchStart(e.targetTouches[0].clientX)
-  }
+    setTouchStart(e.targetTouches[0].clientX);
+  };
 
   const handleTouchMove = (e) => {
-    setTouchEnd(e.targetTouches[0].clientX)
-  }
+    setTouchEnd(e.targetTouches[0].clientX);
+  };
 
   const handleTouchEnd = () => {
-    if (!touchStart || !touchEnd) return
-    const distance = touchStart - touchEnd
-    const isLeftSwipe = distance > 50
-    const isRightSwipe = distance < -50
+    if (!touchStart || !touchEnd) return;
+    const distance = touchStart - touchEnd;
+    const isLeftSwipe = distance > 50;
+    const isRightSwipe = distance < -50;
 
     if (isLeftSwipe) {
-      nextSlide()
+      nextSlide();
     }
     if (isRightSwipe) {
-      prevSlide()
+      prevSlide();
     }
 
-    setTouchStart(null)
-    setTouchEnd(null)
-  }
+    setTouchStart(null);
+    setTouchEnd(null);
+  };
 
   return (
     <section
@@ -106,12 +104,11 @@ export const Projects = () => {
           <div className="flex justify-center gap-2 mb-8">
             <button
               onClick={() => setView("carousel")}
-              className={`flex items-center px-3 py-1.5 rounded-full border border-gray-300 dark:border-gray-700 text-sm font-medium transition-colors
-                ${
-                  view === "carousel"
-                    ? "bg-gray-200 dark:bg-gray-700 text-gray-900 dark:text-gray-100"
-                    : "bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700"
-                }`}
+              className={`flex items-center px-3 py-1.5 rounded-full border border-gray-300 dark:border-gray-700 text-sm font-medium transition-colors ${
+                view === "carousel"
+                  ? "bg-gray-200 dark:bg-gray-700 text-gray-900 dark:text-gray-100"
+                  : "bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700"
+              }`}
             >
               <ChevronLeft className="h-4 w-4 mr-1" />
               <ChevronRight className="h-4 w-4" />
@@ -119,12 +116,11 @@ export const Projects = () => {
             </button>
             <button
               onClick={() => setView("grid")}
-              className={`flex items-center px-3 py-1.5 rounded-full border border-gray-300 dark:border-gray-700 text-sm font-medium transition-colors
-                ${
-                  view === "grid"
-                    ? "bg-gray-200 dark:bg-gray-700 text-gray-900 dark:text-gray-100"
-                    : "bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700"
-                }`}
+              className={`flex items-center px-3 py-1.5 rounded-full border border-gray-300 dark:border-gray-700 text-sm font-medium transition-colors ${
+                view === "grid"
+                  ? "bg-gray-200 dark:bg-gray-700 text-gray-900 dark:text-gray-100"
+                  : "bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700"
+              }`}
             >
               <LayoutGrid className="h-4 w-4" />
               <span className="sr-only">Vista cuadrícula</span>
@@ -142,7 +138,6 @@ export const Projects = () => {
               transition={{ duration: 0.5 }}
               className="relative"
             >
-              {/* Carrusel personalizado */}
               <div
                 ref={carouselRef}
                 className="relative overflow-hidden"
@@ -157,7 +152,9 @@ export const Projects = () => {
                   {Data.map((project, index) => (
                     <div key={index} className="w-full min-w-full px-4 md:min-w-[50%] lg:min-w-[33.333%]">
                       <div
-                        className={`transition-all duration-500 ${activeIndex === index ? "scale-100" : "scale-95 opacity-70"}`}
+                        className={`transition-all duration-500 ${
+                          activeIndex === index ? "scale-100" : "scale-95 opacity-70"
+                        }`}
                       >
                         <ProjectCard {...project} />
                       </div>
@@ -166,7 +163,6 @@ export const Projects = () => {
                 </div>
               </div>
 
-              {/* Controles del carrusel */}
               <div className="flex justify-center gap-2 mt-8">
                 <button
                   onClick={prevSlide}
@@ -184,7 +180,6 @@ export const Projects = () => {
                 </button>
               </div>
 
-              {/* Indicadores */}
               <div className="flex justify-center gap-1 mt-4">
                 {Data.map((_, index) => (
                   <button
@@ -223,5 +218,5 @@ export const Projects = () => {
         </AnimatePresence>
       </div>
     </section>
-  )
-}
+  );
+};

@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { About, Contact, Hero, Navbar, Projects } from "./Components";
+import { About, Contact, Hero, Modal, Navbar, Projects } from "./Components";
 import { FooterComponent } from "./Components/";
 
 export const App = () => {
@@ -27,6 +27,7 @@ export const App = () => {
     <div className="min-h-screen bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-300">
       <Navbar darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
       <main>
+        <Modal/>
         <Hero />
         <About />
         <Projects />
