@@ -4,7 +4,7 @@ import { useState, useEffect, useRef } from "react"
 
 export function Modal({
   title = "🚀 ¡Actualización en progreso!",
-  message = "Estamos mejorando la página. ¡Gracias por tu paciencia!",
+  message = "Estamos mejorando algunas secciones de la página. ¡Gracias por tu paciencia!",
   buttonText = "Aceptar",
   storageKey = "updateModalShown",
   showOnce = true,
