@@ -1,88 +1,50 @@
-"use client";
 
-import { Home, User, Briefcase, Mail, Moon, Sun } from "lucide-react";
-import { useState, useEffect } from "react";
+import { Home, User, Briefcase, Mail, Moon, Sun } from 'lucide-react';
+import { useActiveSection } from "../../hooks"; 
 
 export const MobileNavbar = ({ darkMode, toggleDarkMode }) => {
-  const [activeSection, setActiveSection] = useState("home");
-
-  // Detectar la sección activa de manera optimizada
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollPosition = window.scrollY + window.innerHeight / 2;
-
-      const sections = [
-        { id: "home", element: document.getElementById("home") },
-        { id: "about", element: document.getElementById("about") },
-        { id: "projects", element: document.getElementById("projects") },
-        { id: "contact", element: document.getElementById("contact") },
-      ];
-
-      for (let i = sections.length - 1; i >= 0; i--) {
-        const section = sections[i];
-        if (!section.element) continue;
-
-        const { top } = section.element.getBoundingClientRect();
-        const offsetTop = window.scrollY + top;
-
-        if (scrollPosition >= offsetTop) {
-          if (activeSection !== section.id) {
-            setActiveSection(section.id);
-          }
-          break;
-        }
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [activeSection]);
-
+  const activeSection = useActiveSection(); 
   const navItems = [
-    { id: "home", label: "Inicio", icon: <Home className="h-5 w-5" />, target: "home" },
-    { id: "about", label: "Sobre mí", icon: <User className="h-5 w-5" />, target: "about" },
-    { id: "projects", label: "Proyectos", icon: <Briefcase className="h-5 w-5" />, target: "projects" },
-    { id: "contact", label: "Contacto", icon: <Mail className="h-5 w-5" />, target: "contact" },
+    { id: "home", label: "Inicio", icon: Home },
+    { id: "about", label: "Sobre mí", icon: User },
+    { id: "projects", label: "Proyectos", icon: Briefcase },
+    { id: "contact", label: "Contacto", icon: Mail },
   ];
 
-  const handleNavigation = (target) => {
-    document.getElementById(target)?.scrollIntoView({ behavior: "smooth" });
+  const handleNavigation = (id) => {
+    const section = document.getElementById(id);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+    }
   };
 
   return (
     <div className="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-white/90 dark:bg-gray-900/90 backdrop-blur-sm border-t border-gray-200 dark:border-gray-800">
       <div className="flex justify-around items-center h-16">
-        {navItems.map((item) => (
+        {navItems.map(({ id, label, icon: Icon }) => (
           <button
-            key={item.id}
-            onClick={() => handleNavigation(item.target)}
-            className={`flex flex-col items-center justify-center w-full h-full transition-colors ${
-              activeSection === item.id ? "text-blue-600 dark:text-blue-400" : "text-gray-500 dark:text-gray-400"
-            }`}
+            key={id}
+            onClick={() => handleNavigation(id)}
+            className={`flex flex-col items-center justify-center w-full h-full transition-colors ${activeSection === id
+                ? "text-blue-600 dark:text-blue-400"
+                : "text-gray-500 dark:text-gray-400"
+              }`}
+            aria-current={activeSection === id ? "page" : undefined}
           >
-            {item.icon}
-            <span className="text-xs mt-1">{item.label}</span>
+            <Icon className="h-5 w-5" />
+            <span className="text-xs mt-1">{label}</span>
           </button>
         ))}
         <button
           onClick={toggleDarkMode}
-          className="flex flex-col items-center justify-center w-full h-full text-gray-500 dark:text-gray-400"
-          aria-label="Toggle dark mode"
-          aria-pressed={darkMode}
+          className="flex flex-col items-center justify-center w-full h-full py-1 px-2 rounded-lg transition-all duration-200 text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800/50"
+          aria-label={darkMode ? "Switch to light mode" : "Switch to dark mode"}
         >
-          {darkMode ? (
-            <>
-              <Sun className="h-5 w-5" />
-              <span className="text-xs mt-1">Claro</span>
-            </>
-          ) : (
-            <>
-              <Moon className="h-5 w-5" />
-              <span className="text-xs mt-1">Oscuro</span>
-            </>
-          )}
+          {darkMode ? <Sun className="h-5 w-5 text-amber-500" /> : <Moon className="h-5 w-5 text-indigo-500" />}
+          <span className="text-xs font-medium mt-1">{darkMode ? "Claro" : "Oscuro"}</span>
         </button>
       </div>
     </div>
   );
 };
+

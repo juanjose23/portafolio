@@ -2,14 +2,17 @@ import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import { App } from './App'
 import "./index.css";
+import { DarkModeProvider } from './context/DarkModeContext';
 
 
 createRoot(document.getElementById('root')).render(
 
-<StrictMode>
-    
-<App/>
-</StrictMode>,
+    <StrictMode>
+        <DarkModeProvider>
+            <App />
+        </DarkModeProvider>
 
-   
+    </StrictMode>,
+
+
 )
