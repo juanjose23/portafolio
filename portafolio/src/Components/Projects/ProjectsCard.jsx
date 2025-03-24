@@ -30,7 +30,7 @@ export const ProjectCard = ({ title, description, image, tags, liveUrl, githubUr
           animate={{ opacity: isHovered ? 1 : 0 }}
           transition={{ duration: 0.3, ease: "easeOut" }}
         >
-          <a
+         {liveUrl && ( <a
             href={liveUrl}
             target="_blank"
             rel="noopener noreferrer"
@@ -38,7 +38,7 @@ export const ProjectCard = ({ title, description, image, tags, liveUrl, githubUr
             aria-label="Ver demo"
           >
             <ExternalLink className="h-5 w-5" />
-          </a>
+          </a>)}
           <a
             href={githubUrl}
             target="_blank"
@@ -76,14 +76,14 @@ export const ProjectCard = ({ title, description, image, tags, liveUrl, githubUr
         <div className="flex justify-between items-center text-xs font-medium">
           <span className="text-gray-400 dark:text-gray-500">PROYECTO</span>
           <div className="flex gap-4">
-            <a
+           {liveUrl &&( <a
               href={liveUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="text-black dark:text-white transition-colors duration-300 hover:text-blue-500"
             >
               DEMO
-            </a>
+            </a>)}
             <a
               href={githubUrl}
               target="_blank"
