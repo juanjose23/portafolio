@@ -1,52 +1,39 @@
 
 export const Data = [
     {
-      title: "Proyecto 1",
-      description: "Descripción del proyecto 1. Descripción del proyecto 2. Descripción del proyecto 2.Descripción del proyecto 2.Descripción del proyecto 2.vv",
-      image: "https://placehold.co/800x600/e2e8f0/1e293b?text=Proyecto+1",
-      tags: ["Python", "Dash", "Pandas","Numpy"],
+      title: "Dashboard de E-commerce",
+      description: "Este proyecto es un Dashboard interactivo desarrollado con Dash ,Plotly e integrado con dataset de Kaggle.",
+      image: "https://res.cloudinary.com/dxhb03y8f/image/upload/c_limit,h_600,w_800/txh8b1thjkpqvy4ufjhg",
+      tags: ["Python", "Dash", "Pandas","Numpy","Plotly"],
       liveUrl: "https://e-commerce-dashboard-61n1.onrender.com/puchase_overview",
-      githubUrl: "#",
+      githubUrl: "https://github.com/juanjose23/E-commerce-Dashboard",
     },
     {
-      title: "Proyecto 2",
-      description: "Descripción del proyecto 2. Descripción del proyecto 2. Descripción del proyecto 2.Descripción del proyecto 2.Descripción del proyecto 2.vv",
-      image: "https://placehold.co/800x600/e2e8f0/1e293b?text=Proyecto+2",
-      tags: ["React", "Redux", "Stripe"],
-      liveUrl: "#",
-      githubUrl: "#",
+      title: "DecoArt",
+      description: "DecoArt es una tienda de articulos en línea que ofrece una amplia variedad de productos del hogar.",
+      image: "https://res.cloudinary.com/dxhb03y8f/image/upload/v1742799228/ul57a94a5tppdl6ewefe.png",
+      tags: ["PHP", "Laravel", "Stripe", "Filament"],
+      githubUrl: "https://github.com/juanjose23/DecoArt",
     },
     {
-      title: "Proyecto 3",
-      description: "Descripción del proyecto 2. Descripción del proyecto 2. Descripción del proyecto 2.Descripción del proyecto 2.Descripción del proyecto 2.vv",
-      image: "https://placehold.co/800x600/e2e8f0/1e293b?text=Proyecto+2",
-      tags: ["React", "Redux", "Stripe"],
-      liveUrl: "#",
-      githubUrl: "#",
+      title: "Detector de emociones",
+      description: "Este proyecto utiliza un sistema de reconocimiento de emociones basado en el análisis de la malla facial de Mediapipe. ",
+      image: "https://res.cloudinary.com/dxhb03y8f/image/upload/v1742800087/uox8ipbqswm23m3l0mjc.jpg",
+      tags: ["Numpy", "OpenCV", "MediaPipe"],
+     
+      githubUrl: "https://github.com/juanjose23/detector_emociones",
     },
     {
-      title: "Proyecto 4",
-      description: "Descripción del proyecto 2. Descripción del proyecto 2. Descripción del proyecto 2.Descripción del proyecto 2.Descripción del proyecto 2.vv",
-      image: "https://placehold.co/800x600/e2e8f0/1e293b?text=Proyecto+2",
-      tags: ["React", "Redux", "Stripe"],
-      liveUrl: "#",
-      githubUrl: "#",
+      title: "VerdIES",
+      description: "VerdIES es un sistema sostenible que incentiva el reciclaje en universidades mediante recompensas",
+      image: "https://res.cloudinary.com/dxhb03y8f/image/upload/v1742800410/lv5hezdnjsnwsygcxrks.jpg",
+      tags: ["Laravel", "Blade", "Livewire"],
+      githubUrl: "https://github.com/juanjose23/VerdIES",
     },
-    {
-      title: "Proyecto 5",
-      description: "Descripción del proyecto 2. Descripción del proyecto 2. Descripción del proyecto 2.Descripción del proyecto 2.Descripción del proyecto 2.vv",
-      image: "https://placehold.co/800x600/e2e8f0/1e293b?text=Proyecto+2",
-      tags: ["React", "Redux", "Stripe"],
-      liveUrl: "#",
-      githubUrl: "#",
-    },
-    {
-      title: "Proyecto 6",
-      description: "Descripción del proyecto 2. Descripción del proyecto 2. Descripción del proyecto 2.Descripción del proyecto 2.Descripción del proyecto 2.vv",
-      image: "https://placehold.co/800x600/e2e8f0/1e293b?text=Proyecto+2",
-      tags: ["React", "Redux", "Stripe"],
-      liveUrl: "#",
-      githubUrl: "#",
-    },
+   
+   
+    
+   
+    
   ]
   

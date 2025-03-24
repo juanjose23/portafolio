@@ -1,86 +1,24 @@
-import { useEffect, useState, useRef } from "react";
+
 import { Data } from "../../Data";
 import { ProjectCard } from "./ProjectsCard";
 import { ChevronLeft, ChevronRight, LayoutGrid } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useCarousel, useVisibility } from "../../hooks";
+import { useState } from "react";
 
 export const Projects = () => {
   const [view, setView] = useState("carousel");
-  const [activeIndex, setActiveIndex] = useState(0);
-  const [isVisible, setIsVisible] = useState(false);
-  const carouselRef = useRef(null);
-
-  // Total de items y visibilidad móvil
   const totalItems = Data.length;
+
   const itemsPerView = { mobile: 1, tablet: 2, desktop: 3 };
 
-  const [touchStart, setTouchStart] = useState(null);
-  const [touchEnd, setTouchEnd] = useState(null);
+  const {
+    activeIndex, nextSlide, prevSlide,
+    handleTouchStart, handleTouchMove, handleTouchEnd,
+    carouselRef, getItemsPerView
+  } = useCarousel(totalItems, itemsPerView);
 
-  // Calcular los items visibles según el tamaño de pantalla
-  const getItemsPerView = () => {
-    const width = window.innerWidth;
-    if (width >= 1024) return itemsPerView.desktop; // Desktop
-    if (width >= 768) return itemsPerView.tablet; // Tablet
-    return itemsPerView.mobile; // Mobile
-  };
-
-  // Asegurarse de que el activeIndex no exceda el número total de items
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        if (entries[0].isIntersecting) {
-          setIsVisible(true);
-        }
-      },
-      { threshold: 0.1 }
-    );
-
-    const section = document.getElementById("projects");
-    if (section) observer.observe(section);
-
-    return () => {
-      if (section) observer.unobserve(section);
-    };
-  }, []);
-
-  // Funciones para el carrusel
-  const nextSlide = () => {
-    const itemsPerViewCount = getItemsPerView();
-    const maxIndex = Math.floor(totalItems / itemsPerViewCount);
-    setActiveIndex((prevIndex) => (prevIndex + 1 <= maxIndex ? prevIndex + 1 : prevIndex));
-  };
-
-  const prevSlide = () => {
-    setActiveIndex((prevIndex) => (prevIndex - 1 >= 0 ? prevIndex - 1 : prevIndex));
-  };
-
-  // Manejo de eventos táctiles para el carrusel
-  const handleTouchStart = (e) => {
-    setTouchStart(e.targetTouches[0].clientX);
-  };
-
-  const handleTouchMove = (e) => {
-    setTouchEnd(e.targetTouches[0].clientX);
-  };
-
-  const handleTouchEnd = () => {
-    if (!touchStart || !touchEnd) return;
-    const distance = touchStart - touchEnd;
-    const isLeftSwipe = distance > 50;
-    const isRightSwipe = distance < -50;
-
-    if (isLeftSwipe) {
-      nextSlide();
-    }
-    if (isRightSwipe) {
-      prevSlide();
-    }
-
-    setTouchStart(null);
-    setTouchEnd(null);
-  };
-
+  const { isVisible, elementRef } = useVisibility("projects");
   return (
     <section
       id="projects"
@@ -104,11 +42,10 @@ export const Projects = () => {
           <div className="flex justify-center gap-2 mb-8">
             <button
               onClick={() => setView("carousel")}
-              className={`flex items-center px-3 py-1.5 rounded-full border border-gray-300 dark:border-gray-700 text-sm font-medium transition-colors ${
-                view === "carousel"
-                  ? "bg-gray-200 dark:bg-gray-700 text-gray-900 dark:text-gray-100"
-                  : "bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700"
-              }`}
+              className={`flex items-center px-3 py-1.5 rounded-full border border-gray-300 dark:border-gray-700 text-sm font-medium transition-colors ${view === "carousel"
+                ? "bg-gray-200 dark:bg-gray-700 text-gray-900 dark:text-gray-100"
+                : "bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700"
+                }`}
             >
               <ChevronLeft className="h-4 w-4 mr-1" />
               <ChevronRight className="h-4 w-4" />
@@ -116,11 +53,10 @@ export const Projects = () => {
             </button>
             <button
               onClick={() => setView("grid")}
-              className={`flex items-center px-3 py-1.5 rounded-full border border-gray-300 dark:border-gray-700 text-sm font-medium transition-colors ${
-                view === "grid"
-                  ? "bg-gray-200 dark:bg-gray-700 text-gray-900 dark:text-gray-100"
-                  : "bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700"
-              }`}
+              className={`flex items-center px-3 py-1.5 rounded-full border border-gray-300 dark:border-gray-700 text-sm font-medium transition-colors ${view === "grid"
+                ? "bg-gray-200 dark:bg-gray-700 text-gray-900 dark:text-gray-100"
+                : "bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700"
+                }`}
             >
               <LayoutGrid className="h-4 w-4" />
               <span className="sr-only">Vista cuadrícula</span>
@@ -145,49 +81,61 @@ export const Projects = () => {
                 onTouchMove={handleTouchMove}
                 onTouchEnd={handleTouchEnd}
               >
-                <div
-                  className="flex transition-transform duration-500 ease-out"
-                  style={{ transform: `translateX(-${activeIndex * (100 / getItemsPerView())}%)` }}
-                >
-                  {Data.map((project, index) => (
-                    <div key={index} className="w-full min-w-full px-4 md:min-w-[50%] lg:min-w-[33.333%]">
-                      <div
-                        className={`transition-all duration-500 ${
-                          activeIndex === index ? "scale-100" : "scale-95 opacity-70"
-                        }`}
-                      >
-                        <ProjectCard {...project} />
+            <div
+  className="flex transition-transform duration-500 ease-out"
+  style={{
+    transform: `translateX(-${(activeIndex * 100) / getItemsPerView()}%)`,
+  }}
+  
+>
+
+
+                  {Data.map((project, index) => {
+                    const isActive = index >= activeIndex && index < activeIndex + getItemsPerView();
+                    return (
+                      <div key={index} className={`px-4`} style={{ flex: `0 0 ${100 / getItemsPerView()}%` }}>
+                        <div className={`transition-all duration-500 ${isActive ? "scale-100 opacity-100" : "scale-95 opacity-50"}`}>
+                          <ProjectCard {...project} />
+                        </div>
                       </div>
-                    </div>
-                  ))}
+                    );
+                  })}
+
                 </div>
+
               </div>
 
               <div className="flex justify-center gap-2 mt-8">
                 <button
                   onClick={prevSlide}
-                  className="flex items-center justify-center w-10 h-10 rounded-full bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
+                  className={`flex items-center justify-center w-10 h-10 rounded-full bg-white dark:bg-gray-800 border ${activeIndex === 0 ? "opacity-50 cursor-not-allowed" : "hover:bg-gray-100 dark:hover:bg-gray-700"
+                    } transition-colors`}
                   aria-label="Anterior"
+                  disabled={activeIndex === 0}
                 >
                   <ChevronLeft className="h-5 w-5" />
                 </button>
                 <button
                   onClick={nextSlide}
-                  className="flex items-center justify-center w-10 h-10 rounded-full bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
+                  className={`flex items-center justify-center w-10 h-10 rounded-full bg-white dark:bg-gray-800 border ${activeIndex >= Math.ceil(Data.length / getItemsPerView()) - 1
+                    ? "opacity-50 cursor-not-allowed"
+                    : "hover:bg-gray-100 dark:hover:bg-gray-700"
+                    } transition-colors`}
                   aria-label="Siguiente"
+                  disabled={activeIndex >= Math.ceil(Data.length / getItemsPerView()) - 1}
                 >
                   <ChevronRight className="h-5 w-5" />
                 </button>
               </div>
+
 
               <div className="flex justify-center gap-1 mt-4">
                 {Data.map((_, index) => (
                   <button
                     key={index}
                     onClick={() => setActiveIndex(index)}
-                    className={`w-2 h-2 rounded-full transition-all ${
-                      activeIndex === index ? "bg-gray-800 dark:bg-gray-200 w-4" : "bg-gray-300 dark:bg-gray-700"
-                    }`}
+                    className={`w-2 h-2 rounded-full transition-all ${activeIndex === index ? "bg-gray-800 dark:bg-gray-200 w-4" : "bg-gray-300 dark:bg-gray-700"
+                      }`}
                     aria-label={`Ir al proyecto ${index + 1}`}
                   />
                 ))}
