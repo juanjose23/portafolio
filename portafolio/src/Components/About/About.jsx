@@ -1,7 +1,6 @@
 import { memo } from "react";
 import { Code, Database, Server, Activity, BarChart, Layers } from "lucide-react";
 
-// Datos de habilidades fuera del componente para evitar cálculos innecesarios
 const skills = [
   { icon: Code, title: "Frontend Development", description: "Desarrollo interfaces modernas con React, Vite y Tailwind CSS para una experiencia óptima." },
   { icon: Server, title: "Backend Development", description: "Construyo APIs robustas y escalables con Flask, Django, Laravel y PHP." },

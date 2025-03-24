@@ -27,12 +27,14 @@ export const Contact = () => {
   const socialLinks = [
     {
       name: "LinkedIn",
+      user:"Juan Huete",
       icon: <Linkedin className="h-6 w-6" />,
       url: "https://www.linkedin.com/in/juan-huete-615b60168/",
       color: "bg-[#0077B5]/10 text-[#0077B5] hover:bg-[#0077B5] hover:text-white",
     },
     {
       name: "GitHub",
+      user:"juanjose23",
       icon: <Github className="h-6 w-6" />,
       url: "https://github.com/juanjose23",
       color:
@@ -40,6 +42,7 @@ export const Contact = () => {
     },
     {
       name: "Twitter",
+      user:"Juan65010138",
       icon: <Twitter className="h-6 w-6" />,
       url: "https://x.com/Juan65010138",
       color: "bg-[#1DA1F2]/10 text-[#1DA1F2] hover:bg-[#1DA1F2] hover:text-white",
@@ -131,7 +134,7 @@ export const Contact = () => {
                   </div>
 
                   <a
-                    href="mailto:contacto@juanhuete.com"
+                    href="mailto:contacto@juanhuete052.com"
                     className="flex items-center justify-center gap-2 w-full py-3 px-6 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-medium rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl"
                   >
                     Abrir en mi cliente de correo
@@ -169,7 +172,7 @@ export const Contact = () => {
                     <div className="p-3 rounded-full bg-white/80 dark:bg-gray-800/80">{link.icon}</div>
                     <div className="flex-1">
                       <h4 className="font-medium">{link.name}</h4>
-                      <p className="text-sm opacity-80">@juanhuete</p>
+                      <p className="text-sm opacity-80">{link.user}</p>
                     </div>
                     <ExternalLink className="h-4 w-4 opacity-70" />
                   </motion.a>
