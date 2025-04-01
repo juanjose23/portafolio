@@ -179,11 +179,7 @@ export const Contact = () => {
                 ))}
               </div>
 
-              <div className="mt-8 pt-6 border-t border-gray-200 dark:border-gray-700">
-                <p className="text-center text-gray-600 dark:text-gray-400">
-                  Disponible para proyectos
-                </p>
-              </div>
+           
             </div>
           </motion.div>
         </div>

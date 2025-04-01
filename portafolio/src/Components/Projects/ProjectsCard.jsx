@@ -20,7 +20,8 @@ export const ProjectCard = ({ title, description, image, tags, liveUrl, githubUr
           src={image || "/placeholder.svg?height=224&width=400"}
           alt={title}
           className="w-full h-full object-cover will-change-transform"
-          animate={{ scale: isHovered ? 1.05 : 1 }}
+          animate={{ scale: isHovered ? 1.05 : 1 }} 
+          loading="lazy"
           transition={{ duration: 0.3, ease: "easeOut" }}
         />
 
