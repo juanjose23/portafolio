@@ -2,14 +2,13 @@
 <html lang="es" data-theme="dark">
   <head>
     <meta charset="UTF-8" />
+    <meta name="robots" content="index, follow" />
+
     <link rel="icon" type="image/svg+xml" href="https://img.icons8.com/fluency/48/console.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Juan Huete - Desarrollador Web | Portfolio</title>
     <meta name="geo.region" content="ES" />
-    <meta name="description" content="Portfolio personal de Juan Huete - Desarrollador" />
-   
-    <meta name="description" content="Soy Juan Huete, un desarrollador web con experiencia  y diseño de interfaces. Explora mi portfolio y contáctame para proyectos." />
-
+    <meta name="description" content="Soy Juan Huete, un desarrollador web con experiencia y diseño de interfaces. Explora mi portfolio y contáctame para proyectos." />
     <meta name="keywords" content="Juan Huete, desarrollador web, React, Node.js,Python, Laravel, php, portfolio, diseño web, programador" />
   <!-- Schema Markup -->
   <script type="application/ld+json">
@@ -26,10 +25,9 @@
   </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap">
 
-    <script  async>
-   
+    <script defer>
       (function () {
         const darkMode = localStorage.getItem("darkMode") === "true" || 
                          (!("darkMode" in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches);
@@ -40,6 +38,7 @@
         }
       })();
     </script>
+    
     
   </head>
   <body>
