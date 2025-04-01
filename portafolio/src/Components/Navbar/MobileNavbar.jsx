@@ -1,9 +1,12 @@
-
+import { useContext } from 'react'; 
 import { Home, User, Briefcase, Mail, Moon, Sun } from 'lucide-react';
-import { useActiveSection } from "../../hooks"; 
+import { useActiveSection } from '../../hooks';
+import { ThemeContext } from '../../context/ThemeContext';
 
-export const MobileNavbar = ({ darkMode, toggleDarkMode }) => {
+export const MobileNavbar = () => {
+  const { theme, setTheme } = useContext(ThemeContext); 
   const activeSection = useActiveSection(); 
+
   const navItems = [
     { id: "home", label: "Inicio", icon: Home },
     { id: "about", label: "Sobre mí", icon: User },
@@ -16,6 +19,11 @@ export const MobileNavbar = ({ darkMode, toggleDarkMode }) => {
     if (section) {
       section.scrollIntoView({ behavior: "smooth" });
     }
+  };
+
+  
+  const toggleDarkMode = () => {
+    setTheme(theme === "light" ? "dark" : "light");
   };
 
   return (
@@ -36,15 +44,14 @@ export const MobileNavbar = ({ darkMode, toggleDarkMode }) => {
           </button>
         ))}
         <button
-          onClick={toggleDarkMode}
+          onClick={toggleDarkMode}  // Usa la función toggleDarkMode definida arriba
           className="flex flex-col items-center justify-center w-full h-full py-1 px-2 rounded-lg transition-all duration-200 text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800/50"
-          aria-label={darkMode ? "Switch to light mode" : "Switch to dark mode"}
+          aria-label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
         >
-          {darkMode ? <Sun className="h-5 w-5 text-amber-500" /> : <Moon className="h-5 w-5 text-indigo-500" />}
-          <span className="text-xs font-medium mt-1">{darkMode ? "Claro" : "Oscuro"}</span>
+          {theme === "dark" ? <Sun className="h-5 w-5 text-amber-500" /> : <Moon className="h-5 w-5 text-indigo-500" />}
+          <span className="text-xs font-medium mt-1">{theme === "dark" ? "Claro" : "Oscuro"}</span>
         </button>
       </div>
     </div>
   );
 };
-

@@ -1,16 +1,16 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import { App } from './App'
+import { StrictMode } from 'react';
+import { createRoot } from 'react-dom/client';
+import { App } from './App';
 import "./index.css";
-import { DarkModeProvider } from './context/DarkModeContext';
+import {ThemeProvider} from './context/ThemeProvider';
 
 
 createRoot(document.getElementById('root')).render(
 
     <StrictMode>
-        <DarkModeProvider>
+        <ThemeProvider>
             <App />
-        </DarkModeProvider>
+        </ThemeProvider>
 
     </StrictMode>,
 
