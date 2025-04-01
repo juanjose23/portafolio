@@ -1,24 +1,24 @@
 import { useEffect } from "react";
 import { About, Contact, Hero, Navbar, Projects } from "./Components";
 import { FooterComponent } from "./Components/";
-import { useDarkMode } from "./context/DarkModeContext";
+import {  ThemeContext } from "./context/ThemeContext";
+import { useContext } from "react"; 
+
 export const App = () => {
- 
-  const { darkMode, toggleDarkMode } = useDarkMode();
+  const { theme } = useContext(ThemeContext); 
 
   useEffect(() => {
-    if (darkMode) {
+    if (theme === "dark") {
       document.documentElement.classList.add("dark");
     } else {
       document.documentElement.classList.remove("dark");
     }
-  }, [darkMode]);
+  }, [theme]);
 
   return (
     <div className="min-h-screen bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-300">
-      <Navbar darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
+      <Navbar />
       <main>
-    
         <Hero />
         <About />
         <Projects />
@@ -28,3 +28,5 @@ export const App = () => {
     </div>
   );
 };
+
+
